@@ -1,0 +1,245 @@
+{
+  "inventory": {
+    "specimens": {
+      "a": {
+        "total": 50,
+        "local": 10
+      },
+      "b": {
+        "total": 80,
+        "local": 20
+      }
+    },
+    "optics": {
+      "low": {
+        "width": 4,
+        "height": 4
+      },
+      "high": {
+        "width": 2,
+        "height": 2
+      }
+    },
+    "meter_scale": 1,
+    "reference_limit": 8
+  },
+  "events": [
+    [
+      0,
+      "stage",
+      "placement",
+      {
+        "sample": "a",
+        "mount": "ma",
+        "offset": [
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      0,
+      "stage",
+      "placement",
+      {
+        "sample": "b",
+        "mount": "mb",
+        "offset": [
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      2,
+      "desk",
+      "observe",
+      {
+        "id": "wide",
+        "sample": "a",
+        "mount": "ma",
+        "origin": [
+          0,
+          0
+        ],
+        "optic": "low",
+        "planned_dose": 3
+      }
+    ],
+    [
+      3,
+      "lamp",
+      "pulse",
+      {
+        "job": "wide",
+        "slot": "pre",
+        "actual_ms": [
+          3,
+          4
+        ],
+        "power": 2
+      }
+    ],
+    [
+      5,
+      "lamp",
+      "pulse",
+      {
+        "job": "wide",
+        "slot": "main",
+        "actual_ms": [
+          4,
+          5
+        ],
+        "power": 2
+      }
+    ],
+    [
+      5,
+      "camera",
+      "image",
+      {
+        "job": "wide",
+        "id": "img0",
+        "mount": "ma",
+        "origin": [
+          0,
+          0
+        ],
+        "exposure": [
+          4,
+          5
+        ],
+        "hash": "36ba08"
+      }
+    ],
+    [
+      6,
+      "desk",
+      "observe",
+      {
+        "id": "edge",
+        "sample": "a",
+        "mount": "ma",
+        "origin": [
+          2,
+          2
+        ],
+        "optic": "high",
+        "planned_dose": 4
+      }
+    ],
+    [
+      7,
+      "lamp",
+      "disconnect",
+      {}
+    ],
+    [
+      9,
+      "camera",
+      "image",
+      {
+        "job": "edge",
+        "id": "img1",
+        "mount": "ma",
+        "origin": [
+          2,
+          2
+        ],
+        "exposure": [
+          7,
+          8
+        ],
+        "hash": "b308a5"
+      }
+    ],
+    [
+      10,
+      "desk",
+      "observe",
+      {
+        "id": "zoom",
+        "sample": "a",
+        "mount": "ma",
+        "origin": [
+          3,
+          3
+        ],
+        "optic": "high",
+        "planned_dose": 3
+      }
+    ],
+    [
+      10,
+      "desk",
+      "observe",
+      {
+        "id": "other",
+        "sample": "b",
+        "mount": "mb",
+        "origin": [
+          0,
+          0
+        ],
+        "optic": "low",
+        "planned_dose": 3
+      }
+    ],
+    [
+      11,
+      "lab",
+      "compare",
+      {
+        "reference": "img0",
+        "target": "img1",
+        "comparison": "c1"
+      }
+    ],
+    [
+      15,
+      "lamp",
+      "pulse",
+      {
+        "job": "edge",
+        "slot": "main",
+        "actual_ms": [
+          7,
+          9
+        ],
+        "power": 3
+      }
+    ],
+    [
+      16,
+      "stage",
+      "position",
+      {
+        "job": "edge",
+        "mount": "ma",
+        "origin": [
+          3,
+          2
+        ],
+        "actual_ms": [
+          7,
+          9
+        ]
+      }
+    ],
+    [
+      17,
+      "desk",
+      "inspect",
+      {
+        "samples": [
+          "a",
+          "b"
+        ],
+        "comparisons": [
+          "c1"
+        ]
+      }
+    ]
+  ]
+}
